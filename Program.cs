@@ -1,30 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ReverseString
+namespace Delegate
 {
-    internal class Program
+    class poulami
     {
+        public delegate void poulamidelegate(string name);
+        public delegate void Multidelegate(int x, int y);
+        public void Multi(int x, int y)
+        {
+            Console.WriteLine(x * y);
+
+        }
+        public void name(string name)
+        {
+            Console.WriteLine("my name is" + " " + name);
+
+        }
         static void Main(string[] args)
         {
-            string str = "", reverse = "";
-            int Length = 0;
-            Console.WriteLine("Enter a Word");
-            //Getting String(word) from Console  
-            str = Console.ReadLine();
-            //Calculate length of string str  
-            Length = str.Length - 1;
-            while (Length >= 0)
-            {
-                reverse = reverse + str[Length];
-                Length--;
-            }
-            //Displaying the reverse word  
-            Console.WriteLine("Reverse word is {0}", reverse);
-            Console.ReadLine();
+            poulami d = new poulami();
+            poulamidelegate obj1 = new poulamidelegate(d.name);
+            Multidelegate obj2 = new Multidelegate(d.Multi);
+            obj1("Poulami");
+            obj2(20, 20);
+
         }
+
     }
+
 }
